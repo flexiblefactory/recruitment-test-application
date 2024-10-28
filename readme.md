@@ -9,6 +9,7 @@ This project is a full-stack application built using ASP.NET Core for the backen
 - [Running the Application](#running-the-application)
 - [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
+- [License](#license)
 
 ## Prerequisites
 
