@@ -1,0 +1,47 @@
+# Build Folders
+bin/
+obj/
+out/
+
+# Visual Studio files
+.vs/
+*.sln.ide
+*.suo
+*.user
+*.userprefs
+
+# Rider files
+.idea/
+
+# Visual Studio Code files
+.vscode/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# User-specific files
+*.db
+*.pdb
+*.mdb
+
+# Other files
+*.cache
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.swp
+*.swo
+*.DS_Store
