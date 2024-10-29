@@ -51,7 +51,7 @@ namespace InterviewTest.Controllers
                 connection.Open();
 
                 var queryCmd = connection.CreateCommand();
-                queryCmd.CommandText = @"SELECT Id, Name, Value FROM Employees";
+                queryCmd.CommandText = @"SELECT Id, Name, Value FROM Employees ORDER BY Name";
                 using (var reader = queryCmd.ExecuteReader())
                 {
                     while (reader.Read())
