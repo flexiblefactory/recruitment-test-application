@@ -42,7 +42,7 @@ const EmployeeModal = ({ open, handleClose, employee, onSave }) => {
 
     if (response.ok) {
       
-      onSave();
+      if(onSave) onSave();
       setName('');
       setValue('');
       handleClose();

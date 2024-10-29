@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import * as signalR from '@microsoft/signalr';
 import Employee from './Employee';
 import EmployeeModal from './EmployeeModal';
-import { 
-    Button, 
-    Container, 
-    Typography, 
-    Box, 
+import {
+    Button,
+    Container,
+    Typography,
+    Box,
     Paper,
     Grid,
     Divider,
-    Stack 
+    Stack
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -62,7 +62,7 @@ const Employees = () => {
         await fetch(`${import.meta.env.VITE_API_URL}/employees/${id}`, {
             method: 'DELETE',
         });
-        fetchEmployeeData();
+        // fetchEmployeeData();
     };
 
     const handleOpenModal = (employee = null) => {
@@ -79,10 +79,10 @@ const Employees = () => {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/increment-values`, {
             method: 'POST',
         });
-        if (response.ok) {
-            fetchEmployeeData();
-            fetchSumABC();
-        }
+        /*         if (response.ok) {
+                    fetchEmployeeData();
+                    fetchSumABC();
+                } */
     };
 
     return (
@@ -91,16 +91,16 @@ const Employees = () => {
                 <Typography variant="h4" component="h1" gutterBottom>
                     Employee Management
                 </Typography>
-                
+
                 <Stack direction="row" spacing={2} sx={{ mb: 4 }}>
-                    <Button 
-                        variant="contained" 
+                    <Button
+                        variant="contained"
                         startIcon={<AddIcon />}
                         onClick={() => handleOpenModal()}
                     >
                         Add Employee
                     </Button>
-                    <Button 
+                    <Button
                         variant="outlined"
                         startIcon={<TrendingUpIcon />}
                         onClick={incrementValues}
@@ -111,37 +111,36 @@ const Employees = () => {
 
                 <Box sx={{ mb: 4 }}>
                     {employees.map(employee => (
-                        <Employee 
-                            key={employee.id} 
-                            employee={employee} 
-                            onDelete={deleteEmployee} 
-                            onEdit={() => handleOpenModal(employee)} 
+                        <Employee
+                            key={employee.id}
+                            employee={employee}
+                            onDelete={deleteEmployee}
+                            onEdit={() => handleOpenModal(employee)}
                         />
                     ))}
                 </Box>
 
                 <Divider sx={{ my: 3 }} />
 
-                <Paper 
-                    elevation={1} 
-                    sx={{ 
-                        p: 2, 
+                <Paper
+                    elevation={1}
+                    sx={{
+                        p: 2,
                         bgcolor: 'primary.light',
                         color: 'primary.contrastText',
                         borderRadius: 2
                     }}
                 >
                     <Typography variant="h6">
-                        Total Value (A, B, C Names): {sumABC}
+                        Total Value (A, B, C Names): {sumABC >= 11171 ? sumABC : ''}
                     </Typography>
                 </Paper>
             </Paper>
 
-            <EmployeeModal 
-                open={modalOpen} 
-                handleClose={handleCloseModal} 
-                employee={selectedEmployee} 
-                onSave={fetchEmployeeData} 
+            <EmployeeModal
+                open={modalOpen}
+                handleClose={handleCloseModal}
+                employee={selectedEmployee}
             />
         </Container>
     );

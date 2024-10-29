@@ -139,8 +139,7 @@ namespace InterviewTest.Controllers
                 selectCmd.CommandText = @"
                     SELECT SUM(Value) AS TotalValue
                     FROM Employees
-                    WHERE Name LIKE 'A%' OR Name LIKE 'B%' OR Name LIKE 'C%'
-                    HAVING SUM(Value) >= 11171;";
+                    WHERE Name LIKE 'A%' OR Name LIKE 'B%' OR Name LIKE 'C%'";
 
                 var result = selectCmd.ExecuteScalar();
 
@@ -150,7 +149,7 @@ namespace InterviewTest.Controllers
                 }
                 else
                 {
-                    return NotFound("No results found or sum is less than 11171.");
+                    return NotFound("No results found");
                 }
             }
         }
